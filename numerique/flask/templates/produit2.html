@@ -1,0 +1,42 @@
+{% extends "produit.html" %}
+{% block res %}
+  
+  <h2>Resultat</h2>
+  
+ <form action="" method=post class=formulaire>
+      <center>
+ <table border="3" >
+          <tr>
+            <td>
+                {% for i in range(ligne1)%}
+                    {% for j in range(colonne1)%}
+                        <input type=text size="2" name=case1_{{i}}{{j}} value={{A[i][j]}} required>
+                    {% endfor %}
+                    <br/>
+                {% endfor %}
+             </td>
+             <td><span class="signe">x</span></td>
+             <td>
+                {% for k in range(ligne2)%}
+                  {% for l in range(colonne2)%}
+                        <input type=text size="2" name=case2_{{k}}{{l}} value={{B[k][l]}} required>
+                  {% endfor %}
+                  <br/>
+                {% endfor %}
+             </td>
+             <td> <span class="signe">=</span></td>
+             <td>
+                {% for m in range(ligne1)%}
+                  {% for n in range(colonne2)%}
+                        <input type=text size="2" name=case3_{{m}}{{n}} value={{resultat[m][n]}} required>
+                  {% endfor %}
+                  <br/>
+                {% endfor %}
+             </td>
+          </tr>
+        </table></center>
+    </form>
+
+
+  
+{% endblock %}

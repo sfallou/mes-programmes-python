@@ -1,0 +1,67 @@
+{% extends "solveur.html" %}
+{% block res %}
+  
+ <center>
+  <br/>
+ <div >
+    <ul id="nav"><!-- attention à bien faire correspondre l'id de chaque item avec la feuilles de style -->
+      <a href="{{ url_for('resolutionGauss') }}">Gauss </a>
+      <a href="{{ url_for('resolutionCholesky') }}">Cholesky</a>
+      <a href="{{ url_for('resolutionLU') }}"> LU </a>
+    </ul>
+  </div> </center>
+  <br/>
+ <form action="" method=post class=formulaire>
+      <center>
+ <table border="3" cellspacing="10">
+          <tr>
+            <td>
+                {% for i in range(taille)%}
+                    {% for j in range(taille)%}
+                        <input type=text size="2" name=case1_{{i}}{{j}} value={{Matrice[i][j]}} >
+                    {% endfor %}
+                    <br/>
+                {% endfor %}
+             </td>
+             <td>
+                    {% for i in range(taille)%}
+                        X{{i+1}}
+                        <br/>
+                    {% endfor %}
+                    
+             </td>
+             <td><span class=signe>=</span></td>
+             <td>
+                {% for m in range(taille)%}
+                    <input type=text size="2" name=case3_{{m}} value={{vecteur[m]}}>
+                  <br/>
+                {% endfor %}
+             </td>
+          </tr>
+        </table>
+        <table border=1>
+          <caption>LU</caption>
+          <tr><td> Temps d'excution t= {{temps}} secondes</td><br/></tr>
+          <tr><td> Resultat <br/>
+
+                    {% for i in range(taille)%}
+                         {{resultat[i]}}
+                        <br/>
+                    {% endfor %}
+
+           </td><br/></tr>
+          <tr><td>Matrice L<br/>
+            {% for i in range(taille)%}
+                    {% for j in range(taille)%}
+                        <input type=text size="2" name=case1_{{i}}{{j}} value={{L[i][j]}} >
+                    {% endfor %}
+                    <br/>
+                {% endfor %}</td><br/></tr>
+          
+        </table>
+        </center>
+    </form>
+    <br/><br/>
+
+  
+{% endblock %}

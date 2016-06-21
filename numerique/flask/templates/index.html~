@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Maths</title>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class=page>
+  	<div class="banniere"><h1><marqee>Banniere Calcul Numérique </marquee></h1></div>
+	<!-- code du menu -->
+	<nav>
+		<ul class="top-menu"><!-- attention à bien faire correspondre l'id de chaque item avec la feuilles de style -->
+			<li><a href="{{ url_for('sommeMatrice') }}">Addition  </a><div class="menu-item" id="item1"></div></li>
+			<li><a href="{{ url_for('produitMatrice') }}">Produit </a><div class="menu-item" id="item2"></div></li>
+			<li><a href="{{ url_for('inverseMatrice') }}">Inverse </a><div class="menu-item" id="item3"></div></li>
+			<li><a href="{{ url_for('determinantMatrice') }}">Determinant </a><div class="menu-item" id="item4"></div></li>
+			<li><a href="{{ url_for('transposeMatrice') }}">Transposé </a><div class="menu-item" id="item5"></div></li>
+			<li><a href="{{ url_for('resolutionGauss') }}">GAUSS </a><div class="menu-item" id="item1"></div></li>
+			<li><a href="{{ url_for('resolutionLU') }}"> LU </a><div class="menu-item" id="item2"></div></li>
+		</ul>
+	</nav>
+	
+	<!-- code du contenu de la page -->
+	<div class="contenu">
+		<h2>Application web Flask+Python</h2>
+		<center><p><img src="{{ url_for('static', filename='images/banniere.jpg') }}"/></p></center>
+	</div>
+</div>	
+</body>
+</html>
+

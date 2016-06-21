@@ -1,0 +1,24 @@
+{% extends "index.html" %}
+{% block body %}
+<h2>Produit des Matrices</h2><br/>
+   <form action="{{ url_for('getMatriceProduit') }}" method=post class=formulaire>
+      <center><table >
+        <tr><td>Nombre de &nbsp  Ligne &nbsp  Matrice 1:</td><td><input type=text size=4 name=nbreLigne1 required></td></tr>
+        <tr><td>Nombre de colonne Matrice 1:</td><td><input type=text size=4 name=nbreColonne1 required></td></tr>
+        <tr><td>----------------------------------</td></tr>
+        <tr><td>Nombre de colonne Matrice 2:</td><td><input type=text size=4 name=nbreColonne2 required></td></tr>
+        <tr><td align="center" colspan="4"><br/><input type=submit value=Valider></td></tr>
+      </table></center>
+    </form><br/>
+    <div class="Matrice">
+    <!-- code du contenu de la page -->
+	{% block form %}{% endblock %}
+	</div>
+
+   <div class="Resultat">
+    <!-- code du contenu de la page -->
+  {% block res %}{% endblock %}
+  </div>
+</div>
+
+{% endblock %}

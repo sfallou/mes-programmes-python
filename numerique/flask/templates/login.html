@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Maths</title>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style2-1.css') }}">
+<script type="text/javascript" src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body>
+<div class=page>
+   
+  <center>
+   <div class="cadre">
+    <h2>Login</h2>
+    <div class="text">
+        Application de Calcul Numérique
+</div>
+  <form action="{{ url_for('validLogin') }}" method=post class=formulaire>
+    <table >
+        <tr><td>Username:</td><td><input type=text name=username required></td>
+        <tr><td colspan=2 ><br/></td> </tr>
+        <tr><td colspan=2 align=center><input type=submit value=Connecter class=submit></td></tr>
+    </table>
+  </form><br/><br/>
+  </div>
+  </center>
+
+</div>
+
+</body>
+</html>

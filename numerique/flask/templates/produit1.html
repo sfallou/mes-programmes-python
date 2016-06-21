@@ -1,0 +1,36 @@
+{% extends "produit.html" %}
+{% block form %}
+<h2>Donner les matrices</h2>
+   <form action="{{ url_for('calculProduit') }}" method=post class=formulaire>
+      <center>
+ <table border="3" >
+          <tr>
+            <td>
+                {% for i in range(m1)%}
+                    {% for j in range(n1)%}
+                        <input type=text size="2" name=case1_{{i}}{{j}} required>
+                    {% endfor %}
+                    <br/>
+                {% endfor %}
+             </td>
+             <td>X</td>
+             <td>
+                {% for k in range(m2)%}
+                  {% for l in range(n2)%}
+                        <input type=text size="2" name=case2_{{k}}{{l}} required>
+                  {% endfor %}
+                  <br/>
+                {% endfor %}
+             </td>
+          </tr>
+          <tr><td align="center" colspan="3"><br/><input type=submit value=Calculer></td></tr>
+        </table></center>
+        <input type=hidden name=ligne1 value={{ m1 }}><input type=hidden name=colonne1 value={{ n1 }}>
+        <input type=hidden name=colonne2 value={{ n2 }}>
+    </form>
+
+   
+   
+</div>
+{% endblock %}
+

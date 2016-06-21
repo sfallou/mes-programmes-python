@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+{% block res %}
+  
+  <h2>Resultat</h2>
+  
+ <form action="" method=post class=formulaire>
+      <center>
+ <table border="3" >
+          <tr>
+            <td>
+                {% for i in range(ligne)%}
+                    {% for j in range(colonne)%}
+                        <input type=text size="2" name=case1_{{i}}{{j}} value={{Matr1[i][j]}} >
+                    {% endfor %}
+                    <br/>
+                {% endfor %}
+             </td>
+             <td><span class="signe">+</span></td>
+             <td>
+                {% for k in range(ligne)%}
+                  {% for l in range(colonne)%}
+                        <input type=text size="2" name=case2_{{k}}{{l}} value={{Matr2[k][l]}}>
+                  {% endfor %}
+                  <br/>
+                {% endfor %}
+             </td>
+             <td> <span class="signe">=</span></td>
+             <td>
+                {% for m in range(ligne)%}
+                  {% for n in range(colonne)%}
+                        <input type=text size="2" name=case3_{{m}}{{n}} value={{resultat[m][n]}}>
+                  {% endfor %}
+                  <br/>
+                {% endfor %}
+             </td>
+          </tr>
+        </table></center>
+    </form>
+
+
+  
+{% endblock %}

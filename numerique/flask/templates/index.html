@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Maths</title>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+<script type="text/javascript" src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body>
+<div class=page>
+  	<h1><marquee>Calcul Numérique & Matriciel - Serigne Fallou NDIAYE DIC1-TR-2015</marquee></h1>
+	<!-- code du menu -->
+	<table border=1>
+	<tr><td colspan=4 align=center class=formulaire>.......</td></tr>
+	<tr><td colspan="2" >
+	<nav>
+		<ul class="top-menu"><!-- attention à bien faire correspondre l'id de chaque item avec la feuilles de style -->
+			<li><a href="{{ url_for('index') }}">Home  </a><div class="menu-item" id="item1"></div></li>
+			<li><a href="{{ url_for('sommeMatrice') }}">Addition  </a><div class="menu-item" id="item2"></div></li>
+			<li><a href="{{ url_for('produitMatrice') }}">Produit </a><div class="menu-item" id="item3"></div></li>
+			<li><a href="{{ url_for('inverseMatrice') }}">Inverse </a><div class="menu-item" id="item4"></div></li>
+			<li><a href="{{ url_for('determinantMatrice') }}">Determinant </a><div class="menu-item" id="item5"></div></li>
+			<li><a href="{{ url_for('coeffMatrice') }}">Coeff  </a><div class="menu-item" id="item2"></div></li>
+			<li><a href="{{ url_for('solveur') }}">Résolutions </a><div class="menu-item" id="item6"></div></li>
+			
+		</ul>
+	</nav>
+</td></tr>
+<tr><td colspan=4 align=center class=formulaire>.......</td></tr>
+<tr><td width="200px" align=center >
+	<ul id="nav">
+	  <a href="{{ url_for('logout') }}">Deconnexion </a>
+    </ul>
+	<img src="{{ url_for('static', filename='esp.png') }}">
+	</td>
+	<td class=contenu >
+	<!-- code du contenu de la page -->
+	{% block body %}{% endblock %}
+</td></tr>
+<tr><td colspan=4 align=center class=formulaire>Copyright@sfallou2015</td></tr>
+</table>
+<center>
+ <div class="animation">
+    <table>
+      <tr>
+        <td><img src="{{ url_for('static', filename='im4.jpg') }}" width="150px"/></td>
+        <td><img src="{{ url_for('static', filename='im2.png') }}" width="150px"/></td>
+        <td><img src="{{ url_for('static', filename='im3.jpg') }}" width="150px"/></td>
+        <td><img src="{{ url_for('static', filename='im5.jpg') }}" width="150px"/></td>
+      </tr>
+    </table>
+</div></center>
+</div>	
+</body>
+</html>
+

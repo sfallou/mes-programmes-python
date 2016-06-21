@@ -1,0 +1,17 @@
+{% extends "template.html" %}
+{% block body %}
+<center><h2>Les entrées</h2><br/>
+  <form action="{{ url_for('recupVar') }}" method=post class=formulaire>
+    <table width="700px">
+        <tr><td>λ (Nombre de clients entrants/seconde):</td><td><input type=text name=lamda required></td>
+        <tr><td>μ (Nombre de clients sortants/seconde):</td><td><input type=text name=mu required></td>
+        <tr><td>N (Nombre de serveurs du systemes):</td><td><input type=text name=nb required></td>
+        <tr><td colspan=4 ><br/></td> </tr>
+        <tr><td colspan=4 align=center><input type=submit value=Valider class=submit></td></tr>
+    </table>
+  </form><br/><br/>
+  <img src="{{ url_for('static', filename='image2.jpg') }}">
+   </center>
+</div>
+
+{% endblock %}

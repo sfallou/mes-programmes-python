@@ -1,0 +1,14 @@
+{% extends "recuperation.html" %}
+{% block res %}
+  <h2>Résultats de la file d'attente</h2><br/>
+ <form action="" method=post class=formulaire>
+    <table >
+        <tr><td>ν (Longueur moyenne de la file d'attente):</td><td><input type=text value={{nu}}></td>
+        <tr><td>n (Nombre moyen de clients dans le systéme):</td><td><input type=text value={{n}}></td>
+        <tr><td>tf (Temps moyen d'attente dans la file d'attente):</td><td><input type=text value={{tf}}></td>
+        <tr><td>ρ (Nombre de serveurs inoccupés):</td><td><input type=text value={{rho}}></td>
+        <tr><td colspan=5><br/></td> </tr>
+    </table>
+  </form><br/><br/>
+    {% endblock %}
+   

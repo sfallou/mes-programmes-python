@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+{% block form %}
+<h2>Donner les matrices</h2>
+   <form action="{{ url_for('calculSomme') }}" method=post class=formulaire>
+      <center>
+ <table border="3" >
+          <tr>
+            <td>
+                {% for i in range(m1)%}
+                    {% for j in range(n1)%}
+                        <input type=text size="2" name=case1_{{i}}{{j}} required>
+                    {% endfor %}
+                    <br/>
+                {% endfor %}
+             </td>
+             <td><span class="signe">+</span></td>
+             <td>
+                {% for k in range(m1)%}
+                  {% for l in range(n1)%}
+                        <input type=text size="2" name=case2_{{k}}{{l}} required>
+                  {% endfor %}
+                  <br/>
+                {% endfor %}
+             </td>
+          </tr>
+          <tr><td align="center" colspan="3"><br/><input type=submit value=Calculer></td></tr>
+        </table></center>
+        <input type=hidden name=ligne value={{ m1 }}><input type=hidden name=colonne value={{ n1 }}>
+    </form>
+
+
+
+   
+   
+</div>
+{% endblock %}
+

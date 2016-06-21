@@ -1,0 +1,33 @@
+{% extends "template.html" %}
+{% block body %}
+  
+  <center><h2>Les entrées</h2><br/>
+  <form action="" method=post class=formulaire>
+    <table >
+        <tr><td>λ (Nombre de clients entrants/unité de temps):</td><td><input type=text value={{lamda}}></td>
+        <tr><td>μ (Nombre de clients sortant/unité de temps):</td><td><input type=text value={{mu}}></td>
+        <tr><td>N (Nombre de serveurs du systemes):</td><td><input type=text value={{nb}}></td>
+        <tr><td colspan=4 ><br/></td> </tr>
+    </table>
+  </form><br/><br/>
+   <table>
+    <tr><td colspan="2" >
+  <nav>
+    <ul class="top-menu"><!-- attention à bien faire correspondre l'id de chaque item avec la feuilles de style -->
+      <li><a href="{{ url_for('index') }}">Home  </a><div class="menu-item" id="item1"></div></li>
+      <li><a href="{{ url_for('attente') }}">File Attente  </a><div class="menu-item" id="item2"></div></li>
+      <li><a href="{{ url_for('erlangB') }}">Erlang B </a><div class="menu-item" id="item3"></div></li>
+      <li><a href="{{ url_for('erlangC') }}">Erlang C </a><div class="menu-item" id="item4"></div></li>
+            
+    </ul>
+  </nav>
+</td></tr>
+  </table>
+   <div class="Resultat">
+    <!-- code du contenu de la page -->
+  {% block res %}{% endblock %}
+  </div>
+  </center>
+
+  {% endblock %}
+  

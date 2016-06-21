@@ -1,0 +1,32 @@
+#!/usr/bin/python2.7
+#-*-coding:utf8-*-
+
+import socket,sys
+
+hote = "localhost"
+port = 5001
+buf=1024
+
+connexion_avec_serveur = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+try:
+	connexion_avec_serveur.connect((hote, port))
+except error:
+	print "fin de la connexion"
+	sys.exit()
+	
+
+print("Connexion établie avec le serveur sur le port {}".format(port))
+
+msg_a_envoyer = b""
+
+while msg_a_envoyer != b"fin":
+    # Peut planter si vous tapez des caractères spéciaux
+    msg_a_envoyer=raw_input("Saisie >> ")
+    msg_a_envoyer = msg_a_envoyer.encode()
+    # On envoie le message
+    connexion_avec_serveur.send(msg_a_envoyer)
+    msg_recu = connexion_avec_serveur.recv(buf)
+    print("resultat %s " % msg_recu.decode()) # Là encore, peut planter s'il y a des accents
+
+print("Fermeture de la connexion")
+connexion_avec_serveur.close()

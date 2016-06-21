@@ -1,0 +1,24 @@
+{% extends "determinant.html" %}
+{% block form %}
+<h2>Donner la matrice</h2>
+   <form action="{{ url_for('calculDeterminant') }}" method=post class=formulaire>
+      <center>
+ <table border="3" >
+          <tr>
+            <td>
+                {% for i in range(n)%}
+                    {% for j in range(n)%}
+                        <input type=text size="2" name=case{{i}}{{j}} required>
+                    {% endfor %}
+                    <br/>
+                {% endfor %}
+             </td>
+          </tr>
+          <tr><td align="center" colspan="1"><br/><input type=submit value=Calculer></td></tr>
+        </table></center>
+        <input type=hidden name=n value={{ n }}>
+    </form>
+   
+</div>
+{% endblock %}
+

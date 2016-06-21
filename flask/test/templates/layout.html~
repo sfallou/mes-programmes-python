@@ -1,0 +1,16 @@
+<!doctype html>
+<title>Maths</title>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+<div class=page>
+  <h1>Calcul Numérique</h1>
+  <div class=metanav>
+	<ul>
+		<li><a href="{{ url_for('sommeMatrice') }}">Addition Matrice </a></li>
+		<li><a href="{{ url_for('produitMatrice') }}">Produit Matrice </a></li>
+		<li><a href="{{ url_for('inverseMatrice') }}">Inverse Matrice </a></li>
+		<li><a href="{{ url_for('determinantMatrice') }}">Determinant Matrice </a></li>
+		<li><a href="{{ url_for('transposeMatrice') }}">Transposé Matrice </a></li>
+		<li><a href="{{ url_for('resolutionGauss') }}">Résolution GAUSS </a></li>
+		<li><a href="{{ url_for('resolutionLU') }}">Résolution LU </a></li>		
+	</ul>
+</div>

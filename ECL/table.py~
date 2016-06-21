@@ -1,0 +1,16 @@
+# -*- coding: utf-8 -*-
+import math
+N=int(input("Donner N: "))
+Tab=[]
+col1=[]
+col2=[]
+col3=[]
+for i in range(N):
+	col1.append(i)
+	col2.append(i*i)
+	col3.append(math.sqrt(i))
+Tab[0].append(col1)
+Tab[1].append(col2)
+Tab[2].append(col3)
+print Tab
+

@@ -1,0 +1,119 @@
+# -*- coding: utf-8 -*-
+from Tkinter import *
+def elimination(k,A):
+    i=k+1
+    while i < n:
+        r = A[i][k]/A[k][k]        
+        #b[i] -= r*b[k]
+        j=k
+        while j < n:
+            A[i][j] -= r*A[k][j]
+            j+=1
+        i+=1    
+    return A
+
+def facto_lu(A):
+    arret = 0
+    k =1 
+    while k!=n and arret!=1:
+        L[k][k] = 1
+        if A[k][k] != 0:
+            for i in range(k+1,n):
+                L[i][k] = A[i][k]/A[k][k]
+            elimination(k,A)
+            k = k+1
+        else:
+            arret = 1
+    if arret==1 and k==n:
+        print "A est factorisable en LU"
+    else:
+        print "les conditions ne sont pas reunis"
+
+def som(L,z,i):
+    s =0
+    for k in range(i-1):
+        s += L[i][k]*z[k]
+    return s
+#
+def som2(L,U,x,i):
+    s=0
+    for j in range(i+1,n):
+        s +=U[i][j]*x[j]
+    return s
+#
+def subtition_avant(L,b,n):
+    z[1] = b[1]
+    for i in range(1,n):
+        z[i] = (b[i] - som(L,z,i))
+    subtition_arriere(L,u,n,z)
+
+def subtition_arriere(L,u,n,z):
+    x[n] = z[n]/U[n][n]
+    for i in range(n-1,0,-1):
+        x[i] = (z[i] - som2(L,U,x,i) )/U[i][i]
+    affich_r(x,n)
+#
+def affich_r(x,n):
+    for i in range(n):
+        print "x["+i+1+"] = "+x[i]
+        print
+#
+def solveEquation_lu(self):
+        # eval matrix elements
+        A = []
+        b = []
+        for i in range(n):
+            error = "ERREURS !"  
+            # adding vector b elem
+            try:            
+                if self.caseB[i]["text"] == "X":
+                    error += "\n * Remplacer tous les X par des nombres"     
+                    self.footerLabel.config(text=error, fg="red", font="arial 10")                    
+                    return 0  # stopping programm
+                b.append(eval(self.caseB[i]["text"]))
+            except:
+                error += "\n * Tous les elements de la matrice doivent etre des nombres" 
+                self.footerLabel.config(text=error, fg="red", font="arial 10")                
+                return 0  # stopping programm
+            # adding matrix A elem   
+            A.append([])
+            for j in range(n):
+                try:
+                    if self.caseA[i*n+j]["text"] == "X":
+                        error += "\n * Remplacer tous les X par des nombres"     
+                        self.footerLabel.config(text=error, fg="red", font="arial 10")                    
+                        return 0  # stopping programm
+                    A[i].append(eval(self.caseA[i*n+j]["text"]))
+                except:
+                    error += "\n * Tous les elements de la matrice doivent etre des nombres"
+                    self.footerLabel.config(text=error, fg="red", font="arial 10")                  
+                    return 0  # stopping programm
+        # solve equation by GAUSS method
+        k = 0
+        arret = 0
+        while k!=n and arret!=1:
+            i0 = recherchepivot(k,A)
+            if i0 == -1:
+                arret = 1
+            else:
+                if i0 == k:
+                    A,b = elimination(k,A,b)
+                    k+=1
+                else: 
+                    A,b = permutation(i0,k,A,b)
+                    A,b = elimination(k,A,b)
+                    k+=1
+        if k==n and A[n-1][n-1]!=0:
+            # equation solutions
+            x = remonte(A,b)
+            result = "Ce systeme admet pour solution :"
+            for i in range(n):
+                result += "\n x{} = {}".format(i+1, x[i])          
+        else:
+            # no unique solution
+            result = "Ce systeme n'admet pas de solution unique"
+        # Showing results
+        self.footerLabel.config(text=result, fg="blue", font="Helvetica 10 bold", justify=LEFT)
+
+    
+    

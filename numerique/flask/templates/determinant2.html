@@ -1,0 +1,30 @@
+{% extends "inverse.html" %}
+{% block res %}
+  
+  <h2>Resultat</h2>
+  
+ <form action="" method=post class=formulaire>
+      <center>
+ <table border="3" >
+          <tr>
+            <td> <span class="signe">A=</span></td>
+            <td>
+                {% for i in range(n)%}
+                    {% for j in range(n)%}
+                        <input type=text size="2" name=case1_{{i}}{{j}} value={{Mat[i][j]}} required>
+                    {% endfor %}
+                    <br/>
+                {% endfor %}
+             </td>
+             <td> <span class="signe">Det(A)=</span></td>
+             <td><span class="signe">
+              {{resultat}}
+                </span
+             </td>
+          </tr>
+        </table></center>
+    </form>
+
+
+  
+{% endblock %}

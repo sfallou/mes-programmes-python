@@ -1,0 +1,11 @@
+{% extends "recuperation.html" %}
+{% block res %}
+  <h2>Résultats de Erlang B</h2><br/>
+ <form action="" method=post class=formulaire>
+    <table >
+        <tr><td>La probabilité de perte:</td><td><input type=text value={{probaPertB}}></td>
+        <tr><td>Le trafic écoulé:</td><td><input type=text value={{traficEcoule}}></td>
+    </table>
+  </form><br/><br/>
+    {% endblock %}
+   

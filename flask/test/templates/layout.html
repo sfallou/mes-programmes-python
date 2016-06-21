@@ -1,0 +1,22 @@
+{% extends "index.html" %}
+{% block body %}
+<h2>Addition de Matrices</h2><br/>
+   <form action="{{ url_for('getMatriceSomme') }}" method=post class=formulaire>
+      <center><table >
+        <tr><td>Nombre de Ligne:</td><td><input type=text size=4 name=nbreLigne required></td></tr>
+        <tr><td>Nombre de colonne:</td><td><input type=text size=4 name=nbreColonne required></td></tr>
+        <tr><td align="center" colspan="2"><br/><input type=submit value=Valider></td></tr>
+      </table></center>
+    </form><br/>
+    <div class="Matrice">
+    <!-- code du contenu de la page -->
+	{% block form %}{% endblock %}
+	</div>
+
+   <div class="Resultat">
+    <!-- code du contenu de la page -->
+  {% block res %}{% endblock %}
+  </div>
+</div>
+
+{% endblock %}

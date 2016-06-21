@@ -1,0 +1,43 @@
+{% extends "index.html" %}
+{% block body %}
+<h2>Donner les membres de l'équation</h2><br/>
+
+   <form action="{{ url_for('recupEquation') }}" method=post class=formulaire>
+      <center>
+ <table border="3" cellspacing="10" >
+          <tr>
+            <td>
+                {% for i in range(n)%}
+                    {% for j in range(n)%}
+                        <input type=text size="2" name=case1_{{i}}{{j}}  placeholder="X" required>
+                    {% endfor %}
+                    <br/>
+                {% endfor %}
+             </td>
+            <td>
+                    {% for i in range(n)%}
+                        X{{i+1}}
+                        <br/>
+                    {% endfor %}
+                    
+             </td>
+             <td><span class=signe>=</span></td>
+            <td>
+                    {% for j in range(n)%}
+                        <input type=text size="2" name=case2_{{i}}{{j}} placeholder="X">
+                        <br/>
+                    {% endfor %}
+             </td>
+          </tr>
+          <tr><td align="center" colspan="4"><br/><input type=submit value=Confirmer ></td></tr>
+        </table></center>
+        <input type=hidden name=taille value={{ n }}>
+    </form>
+
+
+
+   
+   
+</div>
+{% endblock %}
+
